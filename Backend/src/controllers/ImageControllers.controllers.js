@@ -1,4 +1,6 @@
 const ImageModel = require('../models/Image.models'); 
+const multer = require('multer') ; 
+const upload = multer({ storage : multer.memoryStorage()});
 const ImagePost = async(req,res)=>{
     try{
         const { ImageUrl, ImageTitleName, ImageDescription }= req.body;
