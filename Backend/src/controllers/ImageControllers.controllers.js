@@ -1,16 +1,19 @@
 const ImageModel = require('../models/Image.models'); 
 const multer = require('multer') ; 
+const uploadImage = require('../services/imageKit.services');
 const upload = multer({ storage : multer.memoryStorage()});
 const ImagePost = async(req,res)=>{
     try{
-        const { ImageUrl, ImageTitleName, ImageDescription }= req.body;
-        if(!ImageUrl || !ImageDescription || !ImageTitleName){
+        const {  ImageTitleName, ImageDescription }= req.body;
+        if( !ImageDescription || !ImageTitleName){
             return res.status(400).json({
                 message : 'All Fields Are Required' , 
                 success : false , 
                 statusCode : 400 
             })
         }
+        const ImageUrl = await   uploadImage(req.file)      
+
         const NewPost = await ImageModel.create({
           ImageUrl,
           ImageTitleName,
