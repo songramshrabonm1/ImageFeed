@@ -22,3 +22,4 @@ const ImageUploadSchema = new mongoose.Schema(
 ); 
 
 const ImageModel = mongoose.model('ImageInfo' , ImageUploadSchema); 
+module.exports = ImageModel; 

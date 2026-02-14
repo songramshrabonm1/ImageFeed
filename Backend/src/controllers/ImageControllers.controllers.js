@@ -50,6 +50,31 @@ const AllImageFind = async(req,res)=>{
 }
 const UpdatePost = async(req,res)=>{
         try {
+            const id = req.params.id ; 
+            const ExistImage = await ImageModel.findById(id); 
+            if(!ExistImage){
+                return res.status(404).json({
+                    message : 'Post Not Found', 
+                    statusCode : 404, 
+                    success : false 
+                })
+            }
+        const { ImageUrl, ImageTitleName, ImageDescription } = req.body;
+        
+        ExistImage.ImageUrl = ImageUrl;
+        ExistImage.ImageTitleName = ImageTitleName; 
+        ExistImage.ImageDescription = ImageDescription ; 
+
+        await ExistImage.save() ; 
+        
+        res.status(200).json({
+            success : true, 
+            statusCode : 200, 
+            message : 'Post Updated Successfully', 
+            data : ExistImage
+        })
+        
+
         } catch (error) {
           console.error(error.emssage);
           return res.status(500).json({
@@ -62,7 +87,19 @@ const UpdatePost = async(req,res)=>{
 const DeleteSpecificPost = async(req,res)=>{
     try {
         const ImageId = req.params.id ; 
-        const UpdateImageDoc = await ImageModel
+        const UpdateImageDoc = await ImageModel.findByIdAndDelete(ImageId); 
+        if(!UpdateImageDoc){
+            return res.status(404).json({
+                message : 'Resource Not Found' , 
+                success : false , 
+                statusCode : 404 
+            })
+        }
+        return res.status(200).json({
+            message : 'Succefully Deleted' , 
+            statusCode : 200, 
+            success : true 
+        })
     } catch (error) {
       console.error(error.emssage);
       return res.status(500).json({
