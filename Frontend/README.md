@@ -41,3 +41,43 @@ app.listen(port , ()=>{
 9. Now Navigate to the frontend folder then
 10. **npm create vite@latest .**
 11. install tailwind , react-router-dom 
+
+# Github Second Commit 
+1. Again navigate to Backend folder then navigate to src folder and create config folder , controllers folder , create models folder and create routes folder 
+2. Inside the config folder create db.js file this file create for connected to mongodb
+
+```js
+require('dotenv').config(); 
+const mongoose = require('mongoose'); 
+const connectedDb = async()=>{
+    try{
+        await mongoose.connect(process.env.MOGOOSE_URI);
+        console.log('Mongodb Connected Successfullyy......');
+    }catch(error){
+        console.error(error.message);
+        process.exit(1);
+    }
+}
+module.exports = connectedDb ; 
+```
+
+3. Then created services folder and created imagekit.services.js file 
+
+```js
+require('dotenv').config(); 
+const imagekit = require('@imagekit/nodejs'); 
+
+const ImageKit = new imagekit({
+  privateKey: process.env.ImageKit,
+});
+
+const uploadImage = async(buffer , imageName)=>{
+    const result = await ImageKit.files.upload({
+      file : buffer.toString('base64'), 
+      fileName : imageName + Date.now(), 
+    });
+    return result; 
+}
+
+module.exports = uploadImage ; 
+```
