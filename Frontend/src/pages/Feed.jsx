@@ -63,10 +63,11 @@ const Feed = () => {
                     setIsOpen={setIsOpen}
                   />
                 </button>
-                <button onClick={() => setIsOpen(true)}>
+                <Link to={`/Edited/${post._id}`}>
                   <CiEdit className="text-xl text-red-400" />
-                  <Edited postId = {post._id}></Edited>
-                </button>
+                
+                </Link>
+             
               </div>
             </div>
             <p className="w-80 text-xs mt-5">{post.ImageDescription}</p>

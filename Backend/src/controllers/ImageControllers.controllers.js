@@ -64,7 +64,9 @@ const AllImageFind = async(req,res)=>{
 const UpdatePost = async(req,res)=>{
         try {
             const id = req.params.id ; 
+            console.log('Id: ' , id) ; 
             const ExistImage = await ImageModel.findById(id); 
+            console.log('ExistImage: ' , ExistImage);
             if(!ExistImage){
                 return res.status(404).json({
                     message : 'Post Not Found', 
@@ -72,19 +74,36 @@ const UpdatePost = async(req,res)=>{
                     success : false 
                 })
             }
-        const { ImageUrl, ImageTitleName, ImageDescription } = req.body;
-        
-        ExistImage.ImageUrl = ImageUrl;
-        ExistImage.ImageTitleName = ImageTitleName; 
-        ExistImage.ImageDescription = ImageDescription ; 
+        const { ImageTitleName, ImageDescription } = req.body;
+        console.log('ImageTitle : ' , ImageTitleName); 
+        console.log('ImageDescription: ' , ImageDescription); 
 
-        await ExistImage.save() ; 
+        const updateData = {
+          ImageTitleName,
+          ImageDescription,
+        };
+
+        console.log('UpdateData: ' , updateData); 
+        if(req.file){
+            const ImageUrl = await uploadImage(req.file.buffer , ImageTitleName);
+            updateData.ImageUrl = ImageUrl.url ; 
+        }
+
+        
+        console.log('UPDATEDATA BEFORE');
+
+        const UpdateData = await ImageModel.updateOne({_id: id} , updateData, {new : true}); 
+        
+        /*
+        const UpdateData = await ImageModel.findByIdAndUpdate(id , updateData , {new : true , runvalidators : true}); 
+        */
+        console.log('UpdateData' , UpdateData);
         
         res.status(200).json({
             success : true, 
             statusCode : 200, 
             message : 'Post Updated Successfully', 
-            data : ExistImage
+            data : UpdateData
         })
         
 

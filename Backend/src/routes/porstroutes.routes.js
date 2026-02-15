@@ -9,7 +9,7 @@ const upload = multer({ storage : multer.memoryStorage()});
 console.log('Hello Routes');
 
 routers.get('/' ,AllImageFind ); 
-routers.put('/UpdatePost/:id' ,UpdatePost ); 
+routers.put('/UpdatePost/:id', upload.single('image') ,UpdatePost ); 
 routers.delete('/DeletePost/:id' ,DeleteSpecificPost );
 routers.post('/createdPost' ,upload.single('image'), ImagePost); 
 routers.get("/GetSpecificPost/:id", GetSpecificPost);
