@@ -97,6 +97,7 @@ const UpdatePost = async(req,res)=>{
           });
         }
 }
+
 const DeleteSpecificPost = async(req,res)=>{
     try {
         const ImageId = req.params.id ; 
@@ -123,4 +124,37 @@ const DeleteSpecificPost = async(req,res)=>{
     }
 }
 
-module.exports = { DeleteSpecificPost, UpdatePost, AllImageFind, ImagePost };
+const GetSpecificPost = async(req,res)=>{
+    try{
+        const PostId = req.params.id ; 
+        const ExistPost = await ImageModel.findById(PostId); 
+        if(!ExistPost){
+            return res.status(404).json({
+                message : 'Post Not Found' , 
+                success : false , 
+                statusCode : 404
+            })
+        }
+        return res.status(200).json({
+            message : 'Result Found' , 
+            data : ExistPost, 
+            success : true, 
+            statusCode : 200
+        })
+    }catch(error){
+        console.error(error.message);
+        return res.status(500).json({
+            message : 'Internal Server Error' , 
+            success : false , 
+            statusCode : 500
+        })
+    }
+}
+
+module.exports = {
+  DeleteSpecificPost,
+  UpdatePost,
+  AllImageFind,
+  ImagePost,
+  GetSpecificPost,
+};

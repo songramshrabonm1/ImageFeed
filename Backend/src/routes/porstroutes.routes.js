@@ -1,5 +1,5 @@
 const express = require('express'); 
-const { AllImageFind, UpdatePost, DeleteSpecificPost, ImagePost } = require('../controllers/ImageControllers.controllers');
+const { AllImageFind, UpdatePost, DeleteSpecificPost, ImagePost, GetSpecificPost } = require('../controllers/ImageControllers.controllers');
 const routers = express.Router(); 
 const multer = require('multer');
 
@@ -12,6 +12,7 @@ routers.get('/' ,AllImageFind );
 routers.put('/UpdatePost/:id' ,UpdatePost ); 
 routers.delete('/DeletePost/:id' ,DeleteSpecificPost );
 routers.post('/createdPost' ,upload.single('image'), ImagePost); 
+routers.get("/GetSpecificPost/:id", GetSpecificPost);
 
 
 module.exports = routers; 

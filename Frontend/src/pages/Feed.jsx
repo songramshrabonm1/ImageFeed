@@ -6,11 +6,12 @@ import { Link } from "react-router";
 
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
-import ExampleWrapper from './ExampleWrapper';
+import ExampleWrapper from './Edited';
 
 
 import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
+import Edited from './Edited';
 
 
 
@@ -64,13 +65,7 @@ const Feed = () => {
                 </button>
                 <button onClick={() => setIsOpen(true)}>
                   <CiEdit className="text-xl text-red-400" />
-                  <SpringModal
-                    ImageData
-                    setImageData={setImageData}
-                    postId={post._id}
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                  />
+                  <Edited postId = {post._id}></Edited>
                 </button>
               </div>
             </div>
