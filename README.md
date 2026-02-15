@@ -1,6 +1,8 @@
-Image Upload & CRUD App
+# Image Upload & CRUD App
 
 A full-stack React + Node.js application for uploading, viewing, editing, and deleting images with MongoDB as the database and ImageKit for image storage.
+
+
 
 <br>
 <br>
@@ -191,4 +193,4 @@ npm run dev
 # Author 
 - Songram Modak 
 - Email : **songram869@gmail.com**
-- Linkedin Profile : 
+- Linkedin Profile : [Songram Modak Linkedin Profile](https://www.linkedin.com/in/songrammodak/)
