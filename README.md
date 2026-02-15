@@ -2,7 +2,7 @@
 
 A full-stack React + Node.js application for uploading, viewing, editing, and deleting images with MongoDB as the database and ImageKit for image storage.
 
-
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/c5a70ca3-7a5b-489d-8a77-34cee758b4b9" />
 
 <br>
 <br>
