@@ -22,6 +22,9 @@ A full-stack React + Node.js application for uploading, viewing, editing, and de
 
 - RESTful API with Express.js
 
+<img width="1278" height="644" alt="Image" src="https://github.com/user-attachments/assets/324762db-ff7c-4d3b-b632-57920c616719" />
+
+
 
 <br>
 <br>
@@ -189,6 +192,26 @@ npm run dev
 
 <br>
 <br>
+
+## Project Overview 
+
+#### Upload Post 
+
+<img width="816" height="649" alt="Image" src="https://github.com/user-attachments/assets/9549983d-88f4-4ae7-a41b-1178fa1d2cc8" />
+
+#### Get All Post 
+
+<img width="631" height="679" alt="Image" src="https://github.com/user-attachments/assets/c0be0c68-74de-4d4f-8254-0c7898949ff0" />
+
+#### Delete Post 
+
+<img width="793" height="451" alt="Image" src="https://github.com/user-attachments/assets/c79a8edd-8c7e-4b84-ae3d-bcca9b177385" />
+
+#### Edit Post 
+
+<img width="749" height="676" alt="Image" src="https://github.com/user-attachments/assets/c66098bd-3fbd-4c9d-aac7-662de39dda6c" />
+
+
 
 # Author 
 - Songram Modak 
