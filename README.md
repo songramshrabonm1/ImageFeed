@@ -209,8 +209,7 @@ npm run dev
 
 #### Edit Post 
 
-<img width="749" height="676" alt="Image" src="https://github.com/user-attachments/assets/c66098bd-3fbd-4c9d-aac7-662de39dda6c" />
-
+<img width="2544" height="1994" alt="Image" src="https://github.com/user-attachments/assets/a49e0df8-9d36-493e-ac0f-3e1e6b42666f" />
 
 
 # Author 
